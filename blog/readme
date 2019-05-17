@@ -1,0 +1,15 @@
+###
+个人博客
+
+### model sf
+python manage.py makemigrations
+python manage.py migrate
+
+
+### install
+pip install Django
+pip install pymysql
+pip install uwsgi
+
+### run
+python manage.py runserver 0.0.0.0:8000
