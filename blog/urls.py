@@ -26,8 +26,9 @@ urlpatterns = [
     path('head/', Show.index),
     path('index/', Show.index),
     path('about/', Show.about),
-    path('info/', Show.info),
+    path('info/<int:id>/', Show.info),
     path('list/', Show.articlelist),
+    path('list/<int:type>', Show.articlelist),
     path('share/', Show.share),
     path('shareinfo/', Show.shareinfo),
 ]
