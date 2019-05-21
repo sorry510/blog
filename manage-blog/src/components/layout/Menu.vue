@@ -1,9 +1,9 @@
 <template>
-    <el-menu>
-        <el-submenu index="1">
+    <el-menu :router="true">
+        <el-submenu index="1" :router="true">
             <template slot="title"><i class="el-icon-menu"></i>我的文章</template>
-            <el-menu-item index="1-1">新增文章</el-menu-item>
-            <el-menu-item index="1-2">文章列表</el-menu-item>
+            <el-menu-item index="/article/add">新增文章</el-menu-item>
+            <el-menu-item index="/article/list">文章列表</el-menu-item>
         </el-submenu>
         <el-submenu index="2">
             <template slot="title"><i class="el-icon-menu"></i>文章分类</template>
@@ -29,3 +29,13 @@
         </el-submenu>
     </el-menu>
 </template>
+
+<style scoped>
+.el-menu {
+    background-color: #E9EEF3;
+}
+.el-submenu .el-menu {
+    background-color: rgb(228, 238, 241);
+}
+</style>
+

@@ -14,7 +14,7 @@
     </el-menu>
 </template>
 <style scoped>
-    /* .el-menu--horizontal>.el-submenu {
+    /*.el-menu--horizontal>.el-submenu {
         float: right;
     } */
     ul.el-menu > li {

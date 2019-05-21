@@ -8,7 +8,12 @@
         <el-aside width="200px">
           <Menu></Menu>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <keep-alive v-if="$route.meta.keepAlive">
+              <router-view></router-view>
+          </keep-alive>
+          <router-view v-else></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -16,8 +21,8 @@
 
 <script>
 
-import Header from './components/layout/Header.vue'
-import Menu from './components/layout/Menu.vue'
+import Header from '@/components/layout/Header.vue'
+import Menu from '@/components/layout/Menu.vue'
 
 export default {
   name: 'app',
@@ -34,6 +39,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.el-breadcrumb {
+  height: 40px;
+}
 </style>
 <style scoped>
   .el-header, .el-footer {
@@ -45,17 +53,16 @@ export default {
   }
   
   .el-aside {
-    background-color: #D3DCE6;
+    background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 200px;
   }
   
   .el-main {
-    background-color: #E9EEF3;
+    background-color: #FFFFFF;
     color: #333;
     text-align: center;
-    line-height: 160px;
   }
   
   body > .el-container {
