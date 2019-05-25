@@ -9,6 +9,11 @@ Vue.prototype.$axios = axios
 
 window._ = require('lodash')
 
+import { mockXHR } from '@/mock/index'
+if (process.env.NODE_ENV !== 'production') {
+  mockXHR()
+}
+
 new Vue({
   render: h => h(App),
   router

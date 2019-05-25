@@ -62,7 +62,6 @@ export default {
   .el-main {
     background-color: #FFFFFF;
     color: #333;
-    text-align: center;
   }
   
   body > .el-container {

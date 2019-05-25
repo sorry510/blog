@@ -5,27 +5,27 @@
       <el-breadcrumb-item :to="{ path: '/article/list' }">文章列表</el-breadcrumb-item>
     </el-breadcrumb>
     <el-table
-      :data="tableData"
+      :data="articleList"
       border
       style="width: 100%" 
       v-loading="loading">
       <el-table-column
-        prop="date"
+        prop="title"
         label="标题"
         >
       </el-table-column>
       <el-table-column
-        prop="name"
+        prop="category_name"
         label="标签"
         >
       </el-table-column>
       <el-table-column
-        prop="region"
+        prop="update_time"
         label="修改时间"
         >
       </el-table-column>
       <el-table-column
-        prop="resource"
+        prop="views"
         label="访问人数"
         >
       </el-table-column>
@@ -47,13 +47,12 @@
 </template>
 
 <script>
+  import { getArticleList } from '@/api/article'
   export default {
     data() {
       return {
-        tableData: [
-          
-        ],
-        loading: true,
+        articleList: [],
+        loading: false,
       }
     },
     created() {
@@ -61,32 +60,22 @@
     },
     methods: {
       init() {
-        this.tableData = [
-          {
-            date: '2018-09-09',
-            name: 'hello',
-            region: 'beijing',
-            resource: 'wu'
-          }
-        ]
-        this.loading = false
-        // axios.get('/form/list', {
-        //   params: {
-
-        //   }
-        // })
-        // .then((response) => {
-        //   this.loading = false
-        //   // log(response.data)
-        //   this.tableData = response.data
-        // })
-        // .catch((error) => {
-
-        // })
+        this.loading = true
+        getArticleList()
+          .then(res=> {
+            this.loading = false
+            console.log(res)
+            // console.log(res[1])
+            this.articleList = res
+          })
+          .catch(err=> {
+            this.loading = false
+            console.log(err)
+          })
       },
       edit(index, row) {
         this.$router.push({
-          path: '/form/edit/'+row.active_id, 
+          path: `/article/edit/${row.id}`, 
         })
       },
       del() {

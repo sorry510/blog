@@ -7,8 +7,8 @@
         </el-submenu>
         <el-submenu index="2">
             <template slot="title"><i class="el-icon-menu"></i>文章分类</template>
-                <el-menu-item index="2-1">新增分类</el-menu-item>
-                <el-menu-item index="2-2">分类列表</el-menu-item>
+                <el-menu-item index="/article/category">分类列表</el-menu-item>
+                <!-- <el-menu-item index="/article/category/list">分类列表</el-menu-item> -->
         </el-submenu>
         <el-submenu index="3">
             <template slot="title"><i class="el-icon-menu"></i>评论设置</template>

@@ -6,10 +6,10 @@ Vue.use(VueRouter)
 export default new VueRouter({
     saveScrollPosition: true,
     routes: [
-        // {
-        //     path: '/article/add',
-        //     component: () => import('../components/article/Add.vue'),
-        // },
+        {
+            path: '*',
+            component: () => import('@/components/home/Index.vue'),
+        },
         {
             path: '/article',
             component: () => import('@/components/layout/Middle.vue'),
@@ -24,11 +24,20 @@ export default new VueRouter({
                     // }
                 },
                 {
-                    path: 'list',
+                    name: 'articleEdit',
+                    path: 'edit/:id',
+                    component: () => import('@/components/article/Edit.vue'),
+                },
+                {
                     name: 'articleList',
-                    component: resolve => import('@/components/article/List.vue')
+                    path: 'list',
+                    component: () => import('@/components/article/List.vue'),
                 },
             ]
-        }
+        },
+        {
+            path: '/article/category',
+            component: () => import('@/components/articlecategory/List.vue'),
+        },
     ],
 })
